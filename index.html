@@ -22,7 +22,7 @@
             overflow: hidden;
         }
 
-      @media (orientation: portrait) {
+        @media (orientation: portrait) {
             body::before {
                 content: '📱 Putar layar ke landscape untuk pengalaman terbaik';
                 position: fixed;
@@ -225,6 +225,152 @@
             box-shadow: 0 15px 50px rgba(0, 255, 65, 0.6);
         }
 
+        /* Concept Introduction Screen */
+        .concept-screen {
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100%;
+            padding: 2rem;
+            position: relative;
+            z-index: 1;
+            overflow-y: auto;
+        }
+
+        .concept-container {
+            max-width: 1100px;
+            background: rgba(0, 255, 65, 0.1);
+            border: 3px solid #00ff41;
+            border-radius: 25px;
+            padding: 3rem;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 0 50px rgba(0, 255, 65, 0.3);
+        }
+
+        .concept-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .concept-icon {
+            font-size: 5rem;
+            margin-bottom: 1rem;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .concept-title {
+            font-size: 3rem;
+            color: #00ff41;
+            margin-bottom: 1rem;
+            text-shadow: 0 0 20px #00ff41;
+        }
+
+        .concept-subtitle {
+            font-size: 1.3rem;
+            color: #00d4ff;
+        }
+
+        .concept-content {
+            display: grid;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .concept-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 2px solid #00d4ff;
+            border-radius: 15px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .concept-card:hover {
+            transform: translateX(10px);
+            border-color: #00ff41;
+            box-shadow: 0 5px 20px rgba(0, 255, 65, 0.3);
+        }
+
+        .concept-card-title {
+            font-size: 1.8rem;
+            color: #00ff41;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .concept-card-text {
+            font-size: 1.2rem;
+            color: #fff;
+            line-height: 1.8;
+        }
+
+        .how-to-play {
+            background: rgba(233, 69, 96, 0.1);
+            border: 2px solid #e94560;
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .how-to-play h3 {
+            font-size: 2rem;
+            color: #e94560;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .how-to-play-list {
+            display: grid;
+            gap: 1rem;
+        }
+
+        .how-to-play-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            font-size: 1.2rem;
+            color: #fff;
+        }
+
+        .how-to-play-item span {
+            font-size: 2rem;
+        }
+
+        .concept-buttons {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-concept-map {
+            padding: 1.5rem 3rem;
+            font-size: 1.5rem;
+            background: rgba(0, 212, 255, 0.2);
+            border: 2px solid #00d4ff;
+            border-radius: 50px;
+            color: #00d4ff;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Fira Code', monospace;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .btn-concept-map:hover {
+            background: rgba(0, 212, 255, 0.3);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.5);
+        }
+
         /* Start Screen */
         .start-screen {
             display: none;
@@ -346,6 +492,32 @@
             justify-content: space-between;
             align-items: center;
             backdrop-filter: blur(10px);
+        }
+
+        .nav-buttons {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .btn-nav {
+            padding: 0.8rem 1.5rem;
+            font-size: 1.1rem;
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid #00d4ff;
+            border-radius: 10px;
+            color: #00d4ff;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Fira Code', monospace;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-nav:hover {
+            background: rgba(0, 212, 255, 0.2);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 212, 255, 0.3);
         }
 
         .score-display {
@@ -836,14 +1008,14 @@
      🔍💻
     </div>
     <h1 class="intro-title" id="introTitle">Selamat Datang Detective!</h1>
-    <p class="intro-description" id="introDescription">Kamu akan menyelesaikan soal dengan tingkat kesulitan berbeda tentang cara komputer memahami bahasa manusia menggunakan <span class="foreign">Natural Language Processing.</span></p>
+    <p class="intro-description" id="introDescription">Kamu akan menyelesaikan soal dengan tingkat kesulitan berbeda tentang cara komputer memahami bahasa manusia menggunakan <span class="foreign">Natural Language Processing</span></p>
     <div class="intro-features">
      <div class="feature-card">
       <div class="feature-icon">
        ⏱️
       </div>
       <div class="feature-text">
-       Setiap soal memiliki batas waktu.
+       Setiap soal memiliki batas waktu
       </div>
      </div>
      <div class="feature-card">
@@ -851,7 +1023,7 @@
        🎯
       </div>
       <div class="feature-text">
-       Soal berbeda untuk setiap pemain.
+       Soal berbeda untuk setiap pemain
       </div>
      </div>
      <div class="feature-card">
@@ -859,18 +1031,71 @@
        📊
       </div>
       <div class="feature-text">
-       3 tingkat kesulitan bertingkat.
+       3 tingkat kesulitan bertingkat
       </div>
      </div>
-    </div><button class="btn-intro" id="btnIntro">Masuk ke Arena Quiz</button>
+    </div><button class="btn-intro" id="btnIntro">Masuk ke Arena Kuis</button>
+   </div><!-- Concept Introduction Screen -->
+   <div class="concept-screen" id="conceptScreen">
+    <div class="concept-container">
+     <div class="concept-header">
+      <div class="concept-icon">
+       🧠💬
+      </div>
+      <h1 class="concept-title">Apa itu Natural Language Processing?</h1>
+      <p class="concept-subtitle">Mari kenali konsep dasarnya sebelum bermain!</p>
+     </div>
+     <div class="concept-content">
+      <div class="concept-card">
+       <h3 class="concept-card-title"><span>🤖</span> Definisi NLP</h3>
+       <p class="concept-card-text"><span class="foreign">Natural Language Processing</span> (NLP) adalah cabang kecerdasan buatan yang membantu komputer memahami, menafsirkan, dan merespons bahasa manusia secara alami. Bayangkan komputer bisa "membaca" dan "mengerti" seperti manusia!</p>
+      </div>
+      <div class="concept-card">
+       <h3 class="concept-card-title"><span>🔍</span> Cara Kerja NLP</h3>
+       <p class="concept-card-text">NLP memproses teks melalui beberapa tahap: <strong>Tokenisasi</strong> (memecah kata), <strong>Analisis Pola</strong> (mencari struktur), <strong>Pemahaman Konteks</strong> (mengerti makna), dan <strong>Klasifikasi</strong> (menentukan maksud). Semua ini membantu komputer "mengerti" bahasa kita!</p>
+      </div>
+      <div class="concept-card">
+       <h3 class="concept-card-title"><span>🌟</span> Contoh Penggunaan</h3>
+       <p class="concept-card-text">NLP digunakan dalam kehidupan sehari-hari: asisten virtual (Siri, Google Assistant), terjemahan otomatis (Google Translate), filter spam email, chatbot customer service, dan analisis sentimen media sosial. NLP ada di mana-mana.</p>
+      </div>
+     </div>
+     <div class="how-to-play">
+      <h3>🎮 Cara Bermain</h3>
+      <div class="how-to-play-list">
+       <div class="how-to-play-item"><span>1️⃣</span>
+        <div>
+         Pilih tingkat kesulitan (Mudah, Sedang, atau Sulit).
+        </div>
+       </div>
+       <div class="how-to-play-item"><span>2️⃣</span>
+        <div>
+         Baca teks contoh dan pertanyaan dengan teliti.
+        </div>
+       </div>
+       <div class="how-to-play-item"><span>3️⃣</span>
+        <div>
+         Pilih jawaban yang paling tepat sebelum waktu habis.
+        </div>
+       </div>
+       <div class="how-to-play-item"><span>4️⃣</span>
+        <div>
+         Kumpulkan poin sebanyak mungkin dan buka level berikutnya.
+        </div>
+       </div>
+      </div>
+     </div>
+     <div class="concept-buttons"><button class="btn-concept-map" id="btnConceptMap"> 🏠 Home </button> <button class="btn-start" id="btnStartFromConcept"> 🎮 Mulai Permainan </button>
+     </div>
+    </div>
    </div><!-- Start Screen -->
    <div class="start-screen" id="startScreen">
     <div class="start-logo">
      🔍💬
     </div>
     <h1 class="start-title" id="quizTitle">Tebak Cara Komputer Memahami Bahasa!</h1>
-        <div class="difficulty-selector"><button class="difficulty-btn active" data-level="mudah"> 🟢 Mudah<br><small>(5 soal, 15 detik)</small> </button> <button class="difficulty-btn locked" data-level="sedang" id="btnSedang"> 🟡 Sedang<br><small>(5 soal, 12 detik)</small> </button> <button class="difficulty-btn locked" data-level="sulit" id="btnSulit"> 🔴 Sulit<br><small>(5 soal, 10 detik)</small> </button>
-    </div><button class="btn-start" id="btnStart">Mulai Petualangan</button>
+    <!-- <p class="start-subtitle" id="quizSubtitle">Mapel: Koding dan Kecerdasan Artifisial | Kelas: XI</p> -->
+    <div class="difficulty-selector"><button class="difficulty-btn active" data-level="mudah"> 🟢 Mudah<br><small>(5 soal, 15 detik)</small> </button> <button class="difficulty-btn locked" data-level="sedang" id="btnSedang"> 🟡 Sedang<br><small>(5 soal, 12 detik)</small> </button> <button class="difficulty-btn locked" data-level="sulit" id="btnSulit"> 🔴 Sulit<br><small>(5 soal, 10 detik)</small> </button>
+    </div><button class="btn-start" id="btnStart">Mulai Kuis</button>
    </div><!-- Quiz Screen -->
    <div class="quiz-screen" id="quizScreen">
     <div class="quiz-header">
@@ -884,6 +1109,8 @@
       <div class="difficulty-badge" id="difficultyBadge">
        MUDAH
       </div>
+     </div>
+     <div class="nav-buttons"><button class="btn-nav" id="btnBackToConcept"> 🗺️ Peta Konsep </button> <button class="btn-nav" id="btnBackToHome"> 🏠 Home </button>
      </div>
      <div class="timer-container">
       <div class="timer-circle">
@@ -915,7 +1142,7 @@
       TIME OVER!
      </div>
      <div class="modal-message">
-      Waktu habis! Mari lanjut ke soal berikutnya.
+      Waktu habis! Lanjut ke soal berikutnya.
      </div><button class="btn-continue" id="btnContinue">⚡ Lanjutkan</button>
     </div>
    </div><!-- Results Screen -->
@@ -1022,9 +1249,10 @@
         // Config
         const defaultConfig = {
             quiz_title: "Tebak Cara Komputer Memahami Bahasa!",
-            intro_title: "Selamat Datang Detective!",
-            intro_description: "Kamu akan menyelesaikan soal dengan tingkat kesulitan berbeda tentang cara komputer memahami bahasa manusia menggunakan Natural Language Processing.",
-            start_button: "Mulai Pertualangan",
+            //quiz_subtitle: "Mapel: Koding dan Kecerdasan Artifisial | Kelas: XI",
+            intro_title: "Selamat Datang!",
+           // intro_description: "Kamu akan menyelesaikan soal dengan tingkat kesulitan berbeda tentang cara komputer memahami bahasa manusia menggunakan Natural Language Processing",
+            start_button: "Mulai Kuis",
             retry_button: "Coba Lagi",
             new_game_button: "🔄 Permainan Baru",
             next_level_button: "Level Selanjutnya 🚀",
@@ -1081,7 +1309,7 @@
                 {
                     type: "Identifikasi Kata Kunci",
                     text: "Promo spesial hari ini! Diskon 50% untuk semua produk.",
-                    question: "Apa kata kunci yang digunakan sistem NLP untuk mengelompokkan teks ini?",
+                    question: "Apa kata kunci yang kemungkinan digunakan sistem NLP untuk mengelompokkan teks ini?",
                     options: ["Promo", "Spesial", "Produk", "Hari"],
                     correctAnswer: "Promo",
                     time: 15
@@ -1113,7 +1341,7 @@
                 {
                     type: "Identifikasi Kata Kunci",
                     text: "Mohon konfirmasi kehadiran Anda sebelum tanggal 20.",
-                    question: "Kata kunci utama yang menunjukkan ini adalah permintaan adalah . . . .",
+                    question: "Kata kunci utama yang menunjukkan ini adalah permintaan . . . .",
                     options: ["Mohon", "Kehadiran", "Sebelum", "Tanggal"],
                     correctAnswer: "Mohon",
                     time: 15
@@ -1147,7 +1375,7 @@
                 {
                     type: "Menentukan Makna Konteks",
                     text: "Dia sangat dingin hari ini.",
-                    question: "Untuk memahami apakah 'dingin' berarti suhu atau sikap, NLP perlu . . . .",
+                    question: "Untuk memahami kata 'dingin' berarti suhu atau sikap, NLP perlu . . . .",
                     options: ["menghitung huruf", "menganalisis konteks", "melihat tanda baca", "menghitung kata"],
                     correctAnswer: "menganalisis konteks",
                     time: 12
@@ -1176,15 +1404,15 @@
                 {
                     type: "Named Entity Recognition",
                     text: "Apple Inc. meluncurkan iPhone baru di California.",
-                    question: "Sistem NER dalam NLP akan mengenali 'Apple Inc.' sebagai apa?",
+                    question: "Sistem NER dalam NLP akan mengenali 'Apple Inc.' sebagai . . . .",
                     options: ["Buah", "Nama perusahaan", "Lokasi", "Produk"],
                     correctAnswer: "Nama perusahaan",
                     time: 12
                 },
                 {
                     type: "Part of Speech Tagging",
-                    text: "Saya belajar coding setiap hari.",
-                    question: "Dalam POS tagging, kata 'belajar' termasuk kategori . . . .",
+                    text: "Saya belajar koding setiap hari.",
+                    question: "Dalam POS tagging, kata 'belajar' dikategorikan sebagai . . . .",
                     options: ["Kata benda", "Kata kerja", "Kata sifat", "Kata keterangan"],
                     correctAnswer: "Kata kerja",
                     time: 12
@@ -1192,9 +1420,9 @@
                 {
                     type: "Klasifikasi Intent",
                     text: "Berapa harga tiket kereta ke Bandung besok?",
-                    question: "Intent (maksud) utama dari kalimat ini adalah . . . .",
-                    options: ["membeli tiket", "menanyakan harga", "memesan kereta", "mencari jadwal"],
-                    correctAnswer: "menanyakan harga",
+                    question: "Apa intent (maksud) utama dari kalimat ini?",
+                    options: ["Membeli tiket", "Menanyakan harga", "Memesan kereta", "Mencari jadwal"],
+                    correctAnswer: "Menanyakan harga",
                     time: 12
                 }
             ],
@@ -1210,7 +1438,7 @@
                 {
                     type: "Dependency Parsing",
                     text: "Mahasiswa yang rajin selalu mendapat nilai bagus.",
-                    question: "Dalam dependency parsing, kata 'rajin' memodifikasi kata . . .",
+                    question: "Dalam dependency parsing, kata 'rajin' memodifikasi kata . . . .",
                     options: ["Mahasiswa", "Selalu", "Mendapat", "Nilai"],
                     correctAnswer: "Mahasiswa",
                     time: 10
@@ -1239,9 +1467,9 @@
                 {
                     type: "Semantic Analysis",
                     text: "'Kick the bucket' dalam bahasa Inggris.",
-                    question: "NLP perlu semantic analysis untuk memahami frasa idiom ini berarti . . . .",
-                    options: ["menendang ember", "meninggal dunia", "bermain bola", "membersihkan"],
-                    correctAnswer: "meninggal dunia",
+                    question: "NLP perlu semantic analysis untuk memahami frasa idiom ini, yang artinya . . . .",
+                    options: ["Menendang ember", "Meninggal dunia", "Bermain bola", "Membersihkan"],
+                    correctAnswer: "Meninggal dunia",
                     time: 10
                 },
                 {
@@ -1260,7 +1488,7 @@
                 {
                     type: "Advanced NLP",
                     text: null,
-                    question: "Model transformer menggunakan mekanisme apa untuk memahami konteks?",
+                    question: "Model transformer menggunakan mekanisme . . . untuk memahami konteks.",
                     options: [
                         "Recurrent loops",
                         "Attention mechanism",
@@ -1357,11 +1585,90 @@
             }
         }
 
+        const conceptScreen = document.getElementById('conceptScreen');
+
         // Intro screen
         document.getElementById('btnIntro').addEventListener('click', () => {
             playSound('intro');
             introScreen.style.display = 'none';
+            conceptScreen.style.display = 'flex';
+        });
+
+        // Concept screen navigation
+        document.getElementById('btnStartFromConcept').addEventListener('click', () => {
+            playSound('click');
+            conceptScreen.style.display = 'none';
             startScreen.style.display = 'flex';
+        });
+
+        document.getElementById('btnConceptMap').addEventListener('click', () => {
+            playSound('click');
+            conceptScreen.style.display = 'none';
+            introScreen.style.display = 'flex';
+        });
+
+        // Quiz navigation buttons with inline confirmation
+        let confirmingConcept = false;
+        let confirmingHome = false;
+
+        document.getElementById('btnBackToConcept').addEventListener('click', () => {
+            playSound('click');
+            const btn = document.getElementById('btnBackToConcept');
+            
+            if (!confirmingConcept) {
+                confirmingConcept = true;
+                btn.textContent = '⚠️ Yakin? Klik Lagi';
+                btn.style.background = 'rgba(233, 69, 96, 0.3)';
+                btn.style.borderColor = '#e94560';
+                btn.style.color = '#e94560';
+                
+                setTimeout(() => {
+                    confirmingConcept = false;
+                    btn.textContent = '🗺️ Peta Konsep';
+                    btn.style.background = 'rgba(255, 255, 255, 0.1)';
+                    btn.style.borderColor = '#00d4ff';
+                    btn.style.color = '#00d4ff';
+                }, 3000);
+            } else {
+                clearInterval(timer);
+                quizScreen.style.display = 'none';
+                conceptScreen.style.display = 'flex';
+                confirmingConcept = false;
+                btn.textContent = '🗺️ Peta Konsep';
+                btn.style.background = 'rgba(255, 255, 255, 0.1)';
+                btn.style.borderColor = '#00d4ff';
+                btn.style.color = '#00d4ff';
+            }
+        });
+
+        document.getElementById('btnBackToHome').addEventListener('click', () => {
+            playSound('click');
+            const btn = document.getElementById('btnBackToHome');
+            
+            if (!confirmingHome) {
+                confirmingHome = true;
+                btn.textContent = '⚠️ Yakin? Klik Lagi';
+                btn.style.background = 'rgba(233, 69, 96, 0.3)';
+                btn.style.borderColor = '#e94560';
+                btn.style.color = '#e94560';
+                
+                setTimeout(() => {
+                    confirmingHome = false;
+                    btn.textContent = '🏠 Home';
+                    btn.style.background = 'rgba(255, 255, 255, 0.1)';
+                    btn.style.borderColor = '#00d4ff';
+                    btn.style.color = '#00d4ff';
+                }, 3000);
+            } else {
+                clearInterval(timer);
+                quizScreen.style.display = 'none';
+                introScreen.style.display = 'flex';
+                confirmingHome = false;
+                btn.textContent = '🏠 Home';
+                btn.style.background = 'rgba(255, 255, 255, 0.1)';
+                btn.style.borderColor = '#00d4ff';
+                btn.style.color = '#00d4ff';
+            }
         });
 
         // Difficulty selection
@@ -1754,5 +2061,5 @@
 
         applyConfig(defaultConfig);
     </script>
- <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9b98444f66fbe9d5',t:'MTc2NzY3MTU5MC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9ba992c80668c753',t:'MTc2Nzg1MzA2Mi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
